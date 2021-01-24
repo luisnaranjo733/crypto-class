@@ -1,6 +1,10 @@
 import sys
+from pprint import pprint
 
-MSGS = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')
+MSGS = (
+    'loga',
+    'log a'
+)
 
 def strxor(a, b):     # xor two strings of different lengths
     if len(a) > len(b):
@@ -13,12 +17,12 @@ def random(size=16):
 
 def encrypt(key, msg):
     c = strxor(key, msg)
-    print
-    print c.encode('hex')
+    hex_encoded = c.encode('hex')
+    print 'Encoding "%s" to "%s"' % (msg, hex_encoded)
     return c
 
-def main():
-    key = random(1024)
-    ciphertexts = [encrypt(key, msg) for msg in MSGS]
+key = random(1024)
+# print(key)
+ciphertexts = [encrypt(key, msg) for msg in MSGS]
 
-    
+# pprint(ciphertexts)
